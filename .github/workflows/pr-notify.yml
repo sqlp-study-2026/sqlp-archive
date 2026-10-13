@@ -1,0 +1,38 @@
+# 포스팅 PR 상태 변화(Ready for review, 커밋, Draft 전환) → judge rebuild dispatch (plan A21, M6.3, S10).
+# pull_request_target은 base(main) 기준으로 실행된다. PR 코드는 checkout하지도 실행하지도 않는다.
+# 이 job은 저장소 파일을 읽지 않고, 이벤트 값은 `run:`에 보간하지 않는다.
+name: pr-notify
+
+on:
+  pull_request_target:
+    types: [ready_for_review, synchronize, converted_to_draft]
+    branches: [main]
+    paths:
+      - "posts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch-rebuild:
+    # sqlp-bot이 초안 PR을 갱신한 경우는 스터디원 활동이 아니므로 무시한다.
+    if: github.actor != 'sqlp-bot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: notify
+    steps:
+      - name: Mint sqlp-notifier token
+        id: app
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.NOTIFIER_APP_ID }}
+          private-key: ${{ secrets.NOTIFIER_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: sqlp-judge
+          permission-actions: write
+
+      - name: Dispatch judge rebuild
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          JUDGE_REPO: ${{ github.repository_owner }}/sqlp-judge
+        run: gh workflow run rebuild.yml -R "$JUDGE_REPO" --ref main

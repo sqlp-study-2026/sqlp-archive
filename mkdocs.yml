@@ -1,0 +1,12 @@
+site_name: SQLP 스터디 아카이브
+site_description: SQLP 스터디의 진행률과 주차별 포스팅을 모아 둔 공개 아카이브
+docs_dir: _docs  # scripts/build_site.py가 data/·posts/로 만든다
+site_dir: _site
+
+theme:
+  name: material
+  language: ko
+
+plugins:
+  - search:
+      lang: ko

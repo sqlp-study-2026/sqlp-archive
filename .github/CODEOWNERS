@@ -1,0 +1,4 @@
+# 포스팅·워크플로 변경은 멘토 승인이 필요하다 (plan A6)
+posts/**      @JaegeonYu
+.github/**    @JaegeonYu
+/CODEOWNERS   @JaegeonYu

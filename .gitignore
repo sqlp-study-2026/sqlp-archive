@@ -1,0 +1,5 @@
+site/build/
+.cache/
+__pycache__/
+_site/
+_docs/

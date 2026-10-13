@@ -1,0 +1,36 @@
+# 포스팅 머지 → judge rebuild dispatch (plan A5, M6.4).
+# sqlp-bot이 일으킨 push(rebuild의 data push 등)는 무시해 되먹임 루프를 막는다(R14, AC6.5).
+# notifier 키는 Environment `notify`(배포 브랜치 main만)에만 있다.
+name: notify
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch-rebuild:
+    if: github.actor != 'sqlp-bot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: notify
+    steps:
+      - name: Mint sqlp-notifier token
+        id: app
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.NOTIFIER_APP_ID }}
+          private-key: ${{ secrets.NOTIFIER_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: sqlp-judge
+          permission-actions: write
+
+      - name: Dispatch judge rebuild
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          JUDGE_REPO: ${{ github.repository_owner }}/sqlp-judge
+        run: gh workflow run rebuild.yml -R "$JUDGE_REPO" --ref main
