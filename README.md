@@ -1,3 +1,5 @@
+![SQLP Archive — 스터디 포스팅 · 진행률 공개 기록](branding/archive-social.png)
+
 # SQLP 스터디 아카이브
 
 《친절한 SQL 튜닝》을 함께 읽고 SQLP를 준비하는 스터디의 **공개 기록**이다.

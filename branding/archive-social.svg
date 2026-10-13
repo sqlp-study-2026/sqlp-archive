@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <!-- sqlp-archive 대표 이미지 (1280x640) -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#13243d"/>
+      <stop offset="1" stop-color="#0b1626"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <text x="96" y="230" font-family="Consolas, monospace" font-size="80" font-weight="700" fill="#e8eef6">SQLP Archive</text>
+  <text x="100" y="296" font-family="'Malgun Gothic', sans-serif" font-size="34" fill="#9fb3c8">스터디 포스팅 · 진행률 공개 기록</text>
+  <text x="100" y="560" font-family="Consolas, monospace" font-size="24" fill="#5f7a96">sqlp-study-2026.github.io/sqlp-archive</text>
+
+  <!-- 오른쪽: 챕터 진행 카드 (1~7장) -->
+  <g transform="translate(740 130) scale(0.92)">
+    <rect width="500" height="300" rx="18" fill="#0f1e33" stroke="#24405f" stroke-width="2"/>
+    <text x="28" y="52" font-family="'Malgun Gothic', sans-serif" font-size="24" fill="#c9d6e3">《친절한 SQL 튜닝》 1회독</text>
+    <g font-family="Consolas, monospace" font-size="18" fill="#5f7a96" text-anchor="middle">
+      <text x="62" y="214">1장</text><text x="124" y="214">2장</text><text x="186" y="214">3장</text>
+      <text x="248" y="214">4장</text><text x="310" y="214">5장</text><text x="372" y="214">6장</text>
+      <text x="434" y="214">7장</text>
+    </g>
+    <!-- 완료(청록) · 진행 중(주황) · 예정(회색) -->
+    <rect x="38" y="90" width="48" height="96" rx="8" fill="#2ec4b6"/>
+    <rect x="100" y="90" width="48" height="96" rx="8" fill="#2ec4b6"/>
+    <rect x="162" y="90" width="48" height="96" rx="8" fill="#2ec4b6"/>
+    <rect x="224" y="90" width="48" height="96" rx="8" fill="#f4a261"/>
+    <rect x="286" y="90" width="48" height="96" rx="8" fill="#24405f"/>
+    <rect x="348" y="90" width="48" height="96" rx="8" fill="#24405f"/>
+    <rect x="410" y="90" width="48" height="96" rx="8" fill="#24405f"/>
+    <!-- 전체 진행률 바 -->
+    <rect x="38" y="244" width="420" height="20" rx="10" fill="#24405f"/>
+    <rect x="38" y="244" width="216" height="20" rx="10" fill="#2ec4b6"/>
+    <text x="458" y="284" text-anchor="end" font-family="Consolas, monospace" font-size="18" fill="#9fb3c8">주차별 포스팅 · 실습 PASS</text>
+  </g>
+</svg>
