@@ -84,6 +84,19 @@
           "week": 1
         }
       ]
+    },
+    {
+      "annual_pct": 0.0,
+      "chapters_done": 0,
+      "nickname": "chan0e",
+      "weekly": [
+        {
+          "done": 0,
+          "pct": 0.0,
+          "total": 4,
+          "week": 1
+        }
+      ]
     }
   ],
   "overall": {
