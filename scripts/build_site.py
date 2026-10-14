@@ -1,7 +1,8 @@
 """공개 사이트 원고(_docs/)를 만든다 (plan M7, F6). 배포 워크플로가 mkdocs build 직전에 실행한다.
 
-입력: data/progress.json, data/problems/*.md (sqlp-judge rebuild가 push), posts/weekNN/*.md (머지된 포스팅)
-출력: _docs/index.md, _docs/curriculum.md, _docs/problems/{id}.md, _docs/posts/weekNN/{slug}.md
+입력: data/progress.json, data/problems/*.md, data/posts.json (sqlp-judge rebuild가 push), posts/weekNN/*.md (머지된 포스팅)
+출력: _docs/index.md, _docs/curriculum.md, _docs/problems/{id}.md, _docs/posts/index.md(포스팅 목록),
+      _docs/posts/weekNN/{slug}.md (본문 + 리뷰)
 표준 라이브러리만 쓴다.
 """
 from __future__ import annotations
@@ -30,6 +31,52 @@ def forbidden_keys(value, trail="") -> list[str]:
     return []
 
 
+STATE_LABEL = {"draft": "✍️ 작성 중", "review": "👀 리뷰 중", "merged": "✅ 게시"}
+VERDICT_LABEL = {"APPROVED": "✅ 승인", "CHANGES_REQUESTED": "🔁 수정 요청", "COMMENTED": "💬 의견"}
+
+
+def _load(path: Path):
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+
+
+def posts_index(posts: list[dict], published: set[str]) -> str:
+    """주차별 포스팅 목록. 게시(머지)된 글은 사이트 안 링크, 리뷰 대화는 GitHub PR 링크."""
+    lines = ["# 포스팅", "", "주차별 스터디원 포스팅이에요. 리뷰는 게시된 글 아래와 GitHub PR에서 볼 수 있어요.", ""]
+    if not posts:
+        return "\n".join(lines + ["아직 포스팅이 없어요."]) + "\n"
+    for week in sorted({p["week"] for p in posts}, reverse=True):
+        items = sorted((p for p in posts if p["week"] == week), key=lambda p: p["nickname"])
+        lines += [f"## {week}주차 · {items[0]['title']}", "", "| 닉네임 | 상태 | 글 | 리뷰 |", "|---|---|---|---|"]
+        for p in items:
+            rel = f"week{week:02d}/{p['slug']}.md"
+            read = f"[읽기]({rel})" if rel in published else "-"
+            lines.append(f"| {p['nickname']} | {STATE_LABEL.get(p['state'], p['state'])} | {read} "
+                         f"| [PR #{p['pr']}]({p['url']}) |")
+        lines.append("")
+    return "\n".join(lines)
+
+
+def review_section(info: dict) -> str:
+    """머지된 포스팅 아래에 붙는 리뷰. 작성자는 닉네임(judge가 login을 바꿔서 보낸다)."""
+    lines = ["", "---", "", "## 💬 리뷰", ""]
+    if not info.get("reviews"):
+        lines += ["남겨진 리뷰가 없어요.", ""]
+    for r in info.get("reviews", []):
+        head = f"**{r['author']}**"
+        if r["kind"] == "review":
+            head += f" · {VERDICT_LABEL.get(r.get('decision') or '', '리뷰')}"
+        elif r["kind"] == "inline":
+            head += " · 본문 코멘트"
+        lines.append(head)
+        if r.get("quote"):
+            lines += ["", f"> {r['quote']}"]
+        if r.get("body"):
+            lines += ["", r["body"]]
+        lines.append("")
+    lines.append(f"[GitHub PR #{info['pr']}에서 전체 대화 보기]({info['url']})")
+    return "\n".join(lines) + "\n"
+
+
 def _bar(pct: float, cells: int = 10) -> str:
     filled = int(round(pct / 100 * cells))
     return "▓" * filled + "░" * (cells - filled)
@@ -37,7 +84,7 @@ def _bar(pct: float, cells: int = 10) -> str:
 
 def home(data: dict) -> str:
     g, o = data["goal"], data["overall"]
-    lines = [f"# {g['name']}", "",
+    lines = [f"# {g['name']}", "", "[📝 포스팅 모아 보기](posts/index.md) · [📚 커리큘럼](curriculum.md)", "",
              f"**전체 진행률 {o['annual_pct']}%** {_bar(o['annual_pct'])} · 평균 완료 챕터 {o['chapters_done_avg']}"
              f" / {g['total_chapters']}", "",
              f"기간 {g['start_date']} ~ {g['end_date']}" + (f" · SQLP 응시 목표일 {g['exam_date']}" if g["exam_date"] else ""),
@@ -81,9 +128,9 @@ def post_page(text: str, author: str | None = None) -> str:
 
 def build(root: Path, out: Path) -> list[str]:
     """원고를 만들고 문제(오류 메시지 목록)를 돌려준다. 문제가 있으면 아무것도 쓰지 않는다."""
-    data_file = root / "data" / "progress.json"
-    data = json.loads(data_file.read_text(encoding="utf-8")) if data_file.exists() else None
-    if data is not None and (bad := forbidden_keys(data)):
+    data = _load(root / "data" / "progress.json")
+    posts = (_load(root / "data" / "posts.json") or {}).get("posts", [])
+    if bad := forbidden_keys(data or {}) + forbidden_keys(posts, "posts"):
         return [f"공개하면 안 되는 키가 있어요: {', '.join(bad)}"]
     if out.exists():
         shutil.rmtree(out)
@@ -97,14 +144,22 @@ def build(root: Path, out: Path) -> list[str]:
     else:
         (out / "index.md").write_text(home(data), encoding="utf-8")
         (out / "curriculum.md").write_text(curriculum(data, problem_pages), encoding="utf-8")
-    authors_file = root / "data" / "authors.json"
-    authors = json.loads(authors_file.read_text(encoding="utf-8")) if authors_file.exists() else {}
+    authors = _load(root / "data" / "authors.json") or {}
+    info = {f"week{p['week']:02d}/{p['slug']}.md": p for p in posts}
+    published = set()
     for post in sorted((root / "posts").glob("week*/*.md")):
         rel = post.relative_to(root).as_posix()
         if POST_PATH.match(rel):
             target = out / rel
             target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text(post_page(post.read_text(encoding="utf-8"), authors.get(post.stem)), encoding="utf-8")
+            page = post_page(post.read_text(encoding="utf-8"), authors.get(post.stem))
+            key = rel.removeprefix("posts/")
+            if key in info:
+                page = page.rstrip("\n") + "\n" + review_section(info[key])
+            target.write_text(page, encoding="utf-8")
+            published.add(key)
+    (out / "posts").mkdir(exist_ok=True)
+    (out / "posts" / "index.md").write_text(posts_index(posts, published), encoding="utf-8")
     return []
 
 

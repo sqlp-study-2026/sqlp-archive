@@ -79,3 +79,42 @@ def test_author_comes_from_slug_not_front_matter(tmp_path):
     build_site.build(root, root / "_docs")
     page = (root / "_docs" / "posts" / "week01" / "sky.md").read_text(encoding="utf-8")
     assert page.startswith("> 1주차 · 하늘 ·")
+
+
+POSTS = {"posts": [
+    {"week": 1, "title": "1장", "slug": "sky", "nickname": "하늘", "state": "merged", "pr": 3,
+     "url": "https://github.com/o/sqlp-archive/pull/3", "merged_at": "2026-10-20T00:00:00+00:00",
+     "reviews": [{"author": "멘토", "kind": "inline", "decision": None, "quote": "인덱스로 읽는다",
+                  "body": "@하늘 근거를 적어 주세요", "at": "2026-10-19T00:00:00+00:00"},
+                 {"author": "멘토", "kind": "review", "decision": "APPROVED", "quote": None,
+                  "body": "", "at": "2026-10-20T00:00:00+00:00"}]},
+    {"week": 1, "title": "1장", "slug": "sea", "nickname": "바다", "state": "draft", "pr": 4,
+     "url": "https://github.com/o/sqlp-archive/pull/4", "merged_at": None, "reviews": []}]}
+
+
+def test_posts_index_and_reviews_under_published_post(tmp_path):
+    root = make_root(tmp_path)
+    (root / "data" / "posts.json").write_text(json.dumps(POSTS, ensure_ascii=False), encoding="utf-8")
+    assert build_site.build(root, root / "_docs") == []
+    index = (root / "_docs" / "posts" / "index.md").read_text(encoding="utf-8")
+    assert "| 하늘 | ✅ 게시 | [읽기](week01/sky.md) | [PR #3](https://github.com/o/sqlp-archive/pull/3) |" in index
+    assert "| 바다 | ✍️ 작성 중 | - | [PR #4]" in index
+    page = (root / "_docs" / "posts" / "week01" / "sky.md").read_text(encoding="utf-8")
+    assert "## 💬 리뷰" in page and "> 인덱스로 읽는다" in page and "**멘토** · ✅ 승인" in page
+    assert page.index("# 1장 정리") < page.index("## 💬 리뷰")
+    assert "posts/index.md" in (root / "_docs" / "index.md").read_text(encoding="utf-8")
+
+
+def test_posts_json_is_checked_for_forbidden_keys(tmp_path):
+    leaked = json.loads(json.dumps(POSTS))
+    leaked["posts"][0]["login"] = "kim-gh"
+    root = make_root(tmp_path)
+    (root / "data" / "posts.json").write_text(json.dumps(leaked), encoding="utf-8")
+    errors = build_site.build(root, root / "_docs")
+    assert errors and "posts[0].login" in errors[0]
+
+
+def test_posts_index_without_posts_json(tmp_path):
+    root = make_root(tmp_path)
+    assert build_site.build(root, root / "_docs") == []
+    assert "아직 포스팅이 없어요" in (root / "_docs" / "posts" / "index.md").read_text(encoding="utf-8")
