@@ -31,7 +31,34 @@
         "title": "7장"
       }
     ],
-    "weeks": []
+    "weeks": [
+      {
+        "chapters": [
+          1
+        ],
+        "end": "2026-10-24T23:59:59.999999+09:00",
+        "number": 1,
+        "problems": [
+          {
+            "chapter": 1,
+            "id": "P101",
+            "title": "10번 부서의 사번 1~2000 사원"
+          },
+          {
+            "chapter": 1,
+            "id": "P102",
+            "title": "부서 0~89번 급여 합계"
+          },
+          {
+            "chapter": 1,
+            "id": "P103",
+            "title": "전체 사원 수"
+          }
+        ],
+        "start": "2026-10-18T00:00:00+09:00",
+        "title": "1장"
+      }
+    ]
   },
   "goal": {
     "end_date": "2027-03-31",
@@ -49,12 +76,24 @@
       "annual_pct": 0.0,
       "chapters_done": 0,
       "nickname": "seonggg",
-      "weekly": []
+      "weekly": [
+        {
+          "done": 0,
+          "pct": 0.0,
+          "total": 4,
+          "week": 1
+        }
+      ]
     }
   ],
   "overall": {
     "annual_pct": 0.0,
     "chapters_done_avg": 0.0,
-    "weekly": []
+    "weekly": [
+      {
+        "pct": 0.0,
+        "week": 1
+      }
+    ]
   }
 }
