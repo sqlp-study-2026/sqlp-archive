@@ -44,7 +44,14 @@
       "post": 40
     }
   },
-  "members": [],
+  "members": [
+    {
+      "annual_pct": 0.0,
+      "chapters_done": 0,
+      "nickname": "seonggg",
+      "weekly": []
+    }
+  ],
   "overall": {
     "annual_pct": 0.0,
     "chapters_done_avg": 0.0,
