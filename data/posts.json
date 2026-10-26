@@ -16,11 +16,28 @@
       "title": "1장",
       "slug": "member2",
       "nickname": "chan0e",
-      "state": "review",
+      "state": "merged",
       "pr": 2,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/2",
-      "merged_at": null,
-      "reviews": []
+      "merged_at": "2026-10-26T11:19:25+00:00",
+      "reviews": [
+        {
+          "author": "멘토",
+          "kind": "comment",
+          "decision": null,
+          "quote": null,
+          "body": "1장 포스팅 시 필수 내용\r\n* SQL 실행 순서\r\n* 옵티마이저 힌트 기술 주의사항\r\n* 하드 파싱 I/O or CPU\r\n* 바인드 변수 부작용 - 책에 없음",
+          "at": "2026-10-17T05:24:04+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "APPROVED",
+          "quote": null,
+          "body": "제가 댓글로 남긴 부분은 필수적인 부분이고, 2주차부터는 그 외에도 전체적인 학습 내용을 정리해주시면 될 것 같습니다.",
+          "at": "2026-10-26T11:19:14+00:00"
+        }
+      ]
     }
   ]
 }
