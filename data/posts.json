@@ -5,11 +5,28 @@
       "title": "1장",
       "slug": "member1",
       "nickname": "seonggg",
-      "state": "review",
+      "state": "merged",
       "pr": 1,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/1",
-      "merged_at": null,
-      "reviews": []
+      "merged_at": "2026-10-26T11:20:24+00:00",
+      "reviews": [
+        {
+          "author": "멘토",
+          "kind": "comment",
+          "decision": null,
+          "quote": null,
+          "body": "1장 포스팅 시 필수 내용\r\n* SQL 실행 순서\r\n* 옵티마이저 힌트 기술 주의사항\r\n* 하드 파싱 I/O or CPU\r\n* 바인드 변수 부작용 - 책에 없음",
+          "at": "2026-10-17T05:23:55+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "APPROVED",
+          "quote": null,
+          "body": "2주차부터 PR 남기기 전 댓글로 남긴 필수부분은 학습 및 기재해주시면 될 것 같습니다.",
+          "at": "2026-10-26T11:20:14+00:00"
+        }
+      ]
     },
     {
       "week": 1,
