@@ -55,6 +55,28 @@
           "at": "2026-10-26T11:19:14+00:00"
         }
       ]
+    },
+    {
+      "week": 2,
+      "title": "2장",
+      "slug": "member1",
+      "nickname": "seonggg",
+      "state": "draft",
+      "pr": 4,
+      "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/4",
+      "merged_at": null,
+      "reviews": []
+    },
+    {
+      "week": 2,
+      "title": "2장",
+      "slug": "member2",
+      "nickname": "chan0e",
+      "state": "draft",
+      "pr": 5,
+      "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/5",
+      "merged_at": null,
+      "reviews": []
     }
   ]
 }
