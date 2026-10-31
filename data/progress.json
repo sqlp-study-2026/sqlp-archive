@@ -99,7 +99,7 @@
   },
   "members": [
     {
-      "annual_pct": 14.3,
+      "annual_pct": 17.1,
       "chapters_done": 1,
       "nickname": "seonggg",
       "weekly": [
@@ -110,8 +110,8 @@
           "week": 1
         },
         {
-          "done": 0,
-          "pct": 0.0,
+          "done": 1,
+          "pct": 25.0,
           "total": 4,
           "week": 2
         }
@@ -138,7 +138,7 @@
     }
   ],
   "overall": {
-    "annual_pct": 14.3,
+    "annual_pct": 15.7,
     "chapters_done_avg": 1.0,
     "weekly": [
       {
@@ -146,7 +146,7 @@
         "week": 1
       },
       {
-        "pct": 0.0,
+        "pct": 12.5,
         "week": 2
       }
     ]
