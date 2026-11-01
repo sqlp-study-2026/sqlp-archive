@@ -118,7 +118,7 @@
       ]
     },
     {
-      "annual_pct": 17.1,
+      "annual_pct": 20.0,
       "chapters_done": 1,
       "nickname": "chan0e",
       "weekly": [
@@ -129,8 +129,8 @@
           "week": 1
         },
         {
-          "done": 1,
-          "pct": 25.0,
+          "done": 2,
+          "pct": 50.0,
           "total": 4,
           "week": 2
         }
@@ -138,7 +138,7 @@
     }
   ],
   "overall": {
-    "annual_pct": 20.0,
+    "annual_pct": 21.4,
     "chapters_done_avg": 1.0,
     "weekly": [
       {
@@ -146,7 +146,7 @@
         "week": 1
       },
       {
-        "pct": 50.0,
+        "pct": 62.5,
         "week": 2
       }
     ]
