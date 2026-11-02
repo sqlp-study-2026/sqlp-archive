@@ -61,22 +61,88 @@
       "title": "2장",
       "slug": "member1",
       "nickname": "seonggg",
-      "state": "review",
+      "state": "merged",
       "pr": 4,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/4",
-      "merged_at": null,
-      "reviews": []
+      "merged_at": "2026-11-02T00:55:36+00:00",
+      "reviews": [
+        {
+          "author": "멘토",
+          "kind": "comment",
+          "decision": null,
+          "quote": null,
+          "body": "필수 학습 요소\r\n\r\n인덱스 탐색 과정 2가지는?\r\n\r\n인덱스 튜닝의 핵심 요소 2가지는?\r\n\r\nROWID 구성 요소는 ? \r\n\r\n인덱스 range scan 불가 이유 2가지는 ? \r\n\r\n인덱스 형변환\r\n숫자형 vs 문자형\r\n날짜형 vs 문자형\r\n\r\nIndex Full Scan을 사용하면 유리한 경우는 ?\r\n\r\nIndex Skip Scan이 불리한 경우는 ?  (본인의 생각기술)\r\n\r\nIndex Fast Full Scan의 특징 2가지는 ?",
+          "at": "2026-10-28T03:38:13+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "inline",
+          "decision": null,
+          "quote": "- 인덱스 선두 컬럼의 Distinct Value가 많을 때",
+          "body": "선두컬럼의 Distinct value가 많으면 불리한 이유?",
+          "at": "2026-11-01T01:24:58+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "CHANGES_REQUESTED",
+          "quote": null,
+          "body": "",
+          "at": "2026-11-01T01:25:20+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "COMMENTED",
+          "quote": null,
+          "body": "리뷰 체크",
+          "at": "2026-11-02T00:52:42+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "APPROVED",
+          "quote": null,
+          "body": "",
+          "at": "2026-11-02T00:55:29+00:00"
+        }
+      ]
     },
     {
       "week": 2,
       "title": "2장",
       "slug": "member2",
       "nickname": "chan0e",
-      "state": "review",
+      "state": "merged",
       "pr": 5,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/5",
-      "merged_at": null,
-      "reviews": []
+      "merged_at": "2026-11-02T00:55:17+00:00",
+      "reviews": [
+        {
+          "author": "멘토",
+          "kind": "comment",
+          "decision": null,
+          "quote": null,
+          "body": "필수 학습 요소\r\n\r\n인덱스 탐색 과정 2가지는?\r\n\r\n인덱스 튜닝의 핵심 요소 2가지는?\r\n\r\nROWID 구성 요소는 ?\r\n\r\n인덱스 range scan 불가 이유 2가지는 ?\r\n\r\n인덱스 형변환\r\n숫자형 vs 문자형\r\n날짜형 vs 문자형\r\n\r\nIndex Full Scan을 사용하면 유리한 경우는 ?\r\n\r\nIndex Skip Scan이 불리한 경우는 ? (본인의 생각기술)\r\n\r\nIndex Fast Full Scan의 특징 2가지는 ?",
+          "at": "2026-10-28T03:38:48+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "COMMENTED",
+          "quote": null,
+          "body": "리뷰 체크",
+          "at": "2026-11-02T00:53:23+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "APPROVED",
+          "quote": null,
+          "body": "",
+          "at": "2026-11-02T00:55:10+00:00"
+        }
+      ]
     }
   ]
 }
