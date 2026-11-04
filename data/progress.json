@@ -157,18 +157,43 @@
           "week": 3
         }
       ]
+    },
+    {
+      "annual_pct": 0.0,
+      "chapters_done": 0,
+      "nickname": "hseol",
+      "weekly": [
+        {
+          "done": 0,
+          "pct": 0.0,
+          "total": 4,
+          "week": 1
+        },
+        {
+          "done": 0,
+          "pct": 0.0,
+          "total": 4,
+          "week": 2
+        },
+        {
+          "done": 0,
+          "pct": 0.0,
+          "total": 1,
+          "week": 3
+        }
+      ]
     }
   ],
   "overall": {
-    "annual_pct": 28.6,
-    "chapters_done_avg": 2.0,
+    "annual_pct": 19.0,
+    "chapters_done_avg": 1.33,
     "weekly": [
       {
-        "pct": 37.5,
+        "pct": 25.0,
         "week": 1
       },
       {
-        "pct": 75.0,
+        "pct": 50.0,
         "week": 2
       },
       {

@@ -165,6 +165,17 @@
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/7",
       "merged_at": null,
       "reviews": []
+    },
+    {
+      "week": 3,
+      "title": "3장",
+      "slug": "member3",
+      "nickname": "hseol",
+      "state": "draft",
+      "pr": 8,
+      "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/8",
+      "merged_at": null,
+      "reviews": []
     }
   ]
 }
