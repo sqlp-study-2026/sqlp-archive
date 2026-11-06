@@ -118,3 +118,12 @@ def test_posts_index_without_posts_json(tmp_path):
     root = make_root(tmp_path)
     assert build_site.build(root, root / "_docs") == []
     assert "아직 포스팅이 없어요" in (root / "_docs" / "posts" / "index.md").read_text(encoding="utf-8")
+
+
+def test_curriculum_shows_note_chapters(tmp_path):
+    data = json.loads(json.dumps(DATA))
+    data["curriculum"]["weeks"][0]["notes"] = [{"id": 3, "title": "인덱스 튜닝"}, {"id": 4, "title": "조인 튜닝"}]
+    root = make_root(tmp_path, data)
+    assert build_site.build(root, root / "_docs") == []
+    cur = (root / "_docs" / "curriculum.md").read_text(encoding="utf-8")
+    assert "📘 자격검정 노트: 3장 인덱스 튜닝 · 4장 조인 튜닝" in cur
