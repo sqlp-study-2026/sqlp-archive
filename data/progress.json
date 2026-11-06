@@ -37,6 +37,7 @@
           1
         ],
         "end": "2026-10-25T23:59:59.999999+09:00",
+        "notes": [],
         "number": 1,
         "problems": [
           {
@@ -63,6 +64,7 @@
           2
         ],
         "end": "2026-11-01T23:59:59.999999+09:00",
+        "notes": [],
         "number": 2,
         "problems": [
           {
@@ -89,6 +91,7 @@
           3
         ],
         "end": "2026-11-08T23:59:59.999999+09:00",
+        "notes": [],
         "number": 3,
         "problems": [],
         "start": "2026-11-02T00:00:00+09:00",
@@ -103,8 +106,8 @@
     "start_date": "2026-10-13",
     "total_chapters": 7,
     "weights": {
-      "lab": 60,
-      "post": 40
+      "lab": 0,
+      "post": 100
     }
   },
   "members": [
@@ -116,13 +119,13 @@
         {
           "done": 0,
           "pct": 0.0,
-          "total": 4,
+          "total": 1,
           "week": 1
         },
         {
-          "done": 3,
-          "pct": 75.0,
-          "total": 4,
+          "done": 0,
+          "pct": 0.0,
+          "total": 1,
           "week": 2
         },
         {
@@ -139,15 +142,15 @@
       "nickname": "chan0e",
       "weekly": [
         {
-          "done": 3,
-          "pct": 75.0,
-          "total": 4,
+          "done": 0,
+          "pct": 0.0,
+          "total": 1,
           "week": 1
         },
         {
-          "done": 3,
-          "pct": 75.0,
-          "total": 4,
+          "done": 0,
+          "pct": 0.0,
+          "total": 1,
           "week": 2
         },
         {
@@ -166,13 +169,13 @@
         {
           "done": 0,
           "pct": 0.0,
-          "total": 4,
+          "total": 1,
           "week": 1
         },
         {
           "done": 0,
           "pct": 0.0,
-          "total": 4,
+          "total": 1,
           "week": 2
         },
         {
@@ -189,11 +192,11 @@
     "chapters_done_avg": 1.33,
     "weekly": [
       {
-        "pct": 25.0,
+        "pct": 0.0,
         "week": 1
       },
       {
-        "pct": 50.0,
+        "pct": 0.0,
         "week": 2
       },
       {
