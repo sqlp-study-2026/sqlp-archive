@@ -149,7 +149,7 @@
       "title": "3장",
       "slug": "member1",
       "nickname": "seonggg",
-      "state": "draft",
+      "state": "review",
       "pr": 6,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/6",
       "merged_at": null,
