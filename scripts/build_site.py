@@ -110,6 +110,8 @@ def curriculum(data: dict, problem_pages: set[str]) -> str:
     for w in data["curriculum"]["weeks"]:
         lines += [f"## {w['number']}주차 · {w['title']}", "",
                   f"{w['start'][:10]} ~ {w['end'][:10]} · {', '.join(map(str, w['chapters']))}장", ""]
+        if notes := w.get("notes"):  # 이번 주 문제집(자격검정 노트) 범위
+            lines += ["📘 자격검정 노트: " + " · ".join(f"{n['id']}장 {n['title']}".strip() for n in notes), ""]
         for p in w["problems"]:
             label = f"{p['id']} {p['title']}".strip()
             lines.append(f"- [{label}](problems/{p['id']}.md)" if p["id"] in problem_pages else f"- {label}")
