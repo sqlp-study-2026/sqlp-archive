@@ -149,11 +149,20 @@
       "title": "3장",
       "slug": "member1",
       "nickname": "seonggg",
-      "state": "review",
+      "state": "merged",
       "pr": 6,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/6",
-      "merged_at": null,
-      "reviews": []
+      "merged_at": "2026-11-09T00:12:07+00:00",
+      "reviews": [
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "APPROVED",
+          "quote": null,
+          "body": "good",
+          "at": "2026-11-09T00:12:00+00:00"
+        }
+      ]
     },
     {
       "week": 3,
