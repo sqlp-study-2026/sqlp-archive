@@ -13,7 +13,7 @@ extra:
     repo: sqlp-study-2026/sqlp-archive
     repo_id: R_kgDOVG6NzQ
     category: 주차별 토론
-    category_id: ""
+    category_id: DIC_kwDOVG6Nzc4DLBZ9
 
 plugins:
   - search:
