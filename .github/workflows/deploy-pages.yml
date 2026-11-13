@@ -9,6 +9,7 @@ on:
       - "data/**"
       - "posts/**"
       - "mkdocs.yml"
+      - "overrides/**"
       - "requirements.txt"
   workflow_dispatch:
 

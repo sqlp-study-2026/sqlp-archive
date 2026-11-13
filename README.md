@@ -21,6 +21,15 @@
    - 내 파일(`posts/weekNN/<내 path>.md`) 말고 다른 파일은 고칠 수 없다 (PR 체크가 실패한다)
 3. 다 쓰면 **Ready for review** → 멘토 리뷰·승인 → 머지되면 사이트에 게시
 
+## 스터디원: 주차별 의견 나누기
+
+사이트의 포스팅 페이지 맨 아래에 **N주차 토론** 창이 있다. 같은 주차 글 어디에서 써도 같은 토론에 모인다.
+
+- GitHub 계정으로 로그인하고 댓글을 쓴다 (답글·공감 가능, 마크다운·SQL 코드블록 가능)
+- 토론은 이 저장소의 **Discussions → 주차별 토론**에 주차당 글 하나로 저장되므로 GitHub에서 바로 써도 된다
+- 댓글에는 닉네임이 아니라 **GitHub 계정 이름**이 보인다
+- 특정 글에 대한 리뷰는 지금처럼 그 글의 PR에 남긴다
+
 자세한 사용법: `sqlp-judge` 저장소의 **docs/시작하기.md** (스터디원만 열람 가능)
 
 ## 구조
@@ -29,5 +38,6 @@
 |---|---|---|
 | `posts/weekNN/<path>.md` | 포스팅 | 스터디원 (PR, 멘토 승인) |
 | `data/` | 진행률·문제 설명·작성자 닉네임·포스팅 목록과 리뷰(`posts.json`, 닉네임만) | 봇 (sqlp-judge의 rebuild) |
+| `overrides/partials/comments.html` | 포스팅 아래 주차별 토론 창 (giscus, 설정은 `mkdocs.yml`의 `extra.giscus`) | 개발 |
 | `scripts/build_site.py` | `data/`·`posts/`로 사이트 원고 생성 (공개 금지 항목 검사) | 개발 |
 | `.github/workflows/` | 포스팅 검사, 진행률 갱신 요청, Pages 배포 | 개발 (멘토 승인) |

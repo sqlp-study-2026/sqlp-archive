@@ -1,0 +1,24 @@
+{#- 주차별 토론 (giscus, GitHub Discussions). 같은 주차 포스팅은 page.meta.discussion이 같아서 한 토론을 같이 쓴다.
+    discussion은 scripts/build_site.py가 포스팅 페이지에만 넣는다. mkdocs.yml의 extra.giscus.category_id가 비어 있으면 그리지 않는다. -#}
+{% set giscus = config.extra.giscus %}
+{% if page.meta.discussion and giscus and giscus.category_id %}
+  <h2 id="__comments">💬 {{ page.meta.discussion | e }}</h2>
+  <p>이번 주차 글 모두에 같이 보이는 토론이에요. GitHub 계정으로 로그인하면 의견을 남길 수 있어요. 댓글에는 GitHub 계정 이름이 보여요.</p>
+  <script src="https://giscus.app/client.js"
+          data-repo="{{ giscus.repo | e }}"
+          data-repo-id="{{ giscus.repo_id | e }}"
+          data-category="{{ giscus.category | e }}"
+          data-category-id="{{ giscus.category_id | e }}"
+          data-mapping="specific"
+          data-term="{{ page.meta.discussion | e }}"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="ko"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+{% endif %}

@@ -44,7 +44,7 @@ def test_build_writes_home_curriculum_problems_posts(tmp_path):
     assert "[T001 사번 범위 조회](problems/T001.md)" in cur and "- T002\n" in cur  # 페이지 없는 문제는 링크 없음
     assert (docs / "problems" / "T001.md").exists()
     post = (docs / "posts" / "week01" / "sky.md").read_text(encoding="utf-8")
-    assert post.startswith("> 1주차 · 하늘 · 1장") and "nickname:" not in post and "# 1장 정리" in post
+    assert post.startswith("---\ndiscussion: 1주차 토론\n---\n\n> 1주차 · 하늘 · 1장") and "nickname:" not in post and "# 1장 정리" in post
     assert not (docs / "posts" / "week01" / "Bad Name.md").exists()
 
 
@@ -78,7 +78,7 @@ def test_author_comes_from_slug_not_front_matter(tmp_path):
     post.write_text(post.read_text(encoding="utf-8").replace("nickname: 하늘", "nickname: 바다"), encoding="utf-8")
     build_site.build(root, root / "_docs")
     page = (root / "_docs" / "posts" / "week01" / "sky.md").read_text(encoding="utf-8")
-    assert page.startswith("> 1주차 · 하늘 ·")
+    assert page.startswith("---\ndiscussion: 1주차 토론\n---\n\n> 1주차 · 하늘 ·")
 
 
 POSTS = {"posts": [
