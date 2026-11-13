@@ -78,7 +78,7 @@ def test_author_comes_from_slug_not_front_matter(tmp_path):
     post.write_text(post.read_text(encoding="utf-8").replace("nickname: 하늘", "nickname: 바다"), encoding="utf-8")
     build_site.build(root, root / "_docs")
     page = (root / "_docs" / "posts" / "week01" / "sky.md").read_text(encoding="utf-8")
-    assert page.startswith("> 1주차 · 하늘 ·")
+    assert page.startswith("---\ndiscussion: 1주차 토론\n---\n\n> 1주차 · 하늘 ·")
 
 
 POSTS = {"posts": [

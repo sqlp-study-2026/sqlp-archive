@@ -151,10 +151,12 @@ def build(root: Path, out: Path) -> list[str]:
     published = set()
     for post in sorted((root / "posts").glob("week*/*.md")):
         rel = post.relative_to(root).as_posix()
-        if POST_PATH.match(rel):
+        if m := POST_PATH.match(rel):
             target = out / rel
             target.parent.mkdir(parents=True, exist_ok=True)
-            page = post_page(post.read_text(encoding="utf-8"), authors.get(post.stem))
+            # 같은 주차 글은 하나의 giscus 토론을 같이 쓴다 (overrides/partials/comments.html). 주차는 경로에서 읽는다.
+            page = (f"---\ndiscussion: {int(m.group(1))}주차 토론\n---\n\n"
+                    + post_page(post.read_text(encoding="utf-8"), authors.get(post.stem)))
             key = rel.removeprefix("posts/")
             if key in info:
                 page = page.rstrip("\n") + "\n" + review_section(info[key])
