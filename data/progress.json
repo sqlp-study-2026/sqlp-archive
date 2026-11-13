@@ -96,6 +96,22 @@
         "problems": [],
         "start": "2026-11-02T00:00:00+09:00",
         "title": "3장"
+      },
+      {
+        "chapters": [
+          3
+        ],
+        "end": "2026-11-15T23:59:59.999999+09:00",
+        "notes": [
+          {
+            "id": 2,
+            "title": "SQL 분석 도구"
+          }
+        ],
+        "number": 4,
+        "problems": [],
+        "start": "2026-11-09T00:00:00+09:00",
+        "title": "3장"
       }
     ]
   },
@@ -112,8 +128,8 @@
   },
   "members": [
     {
-      "annual_pct": 42.9,
-      "chapters_done": 3,
+      "annual_pct": 35.7,
+      "chapters_done": 2,
       "nickname": "seonggg",
       "weekly": [
         {
@@ -133,12 +149,18 @@
           "pct": 0.0,
           "total": 1,
           "week": 3
+        },
+        {
+          "done": 0,
+          "pct": 0.0,
+          "total": 1,
+          "week": 4
         }
       ]
     },
     {
-      "annual_pct": 42.9,
-      "chapters_done": 3,
+      "annual_pct": 35.7,
+      "chapters_done": 2,
       "nickname": "chan0e",
       "weekly": [
         {
@@ -158,12 +180,18 @@
           "pct": 0.0,
           "total": 1,
           "week": 3
+        },
+        {
+          "done": 0,
+          "pct": 0.0,
+          "total": 1,
+          "week": 4
         }
       ]
     },
     {
-      "annual_pct": 14.3,
-      "chapters_done": 1,
+      "annual_pct": 7.1,
+      "chapters_done": 0,
       "nickname": "hseol",
       "weekly": [
         {
@@ -183,13 +211,19 @@
           "pct": 0.0,
           "total": 1,
           "week": 3
+        },
+        {
+          "done": 0,
+          "pct": 0.0,
+          "total": 1,
+          "week": 4
         }
       ]
     }
   ],
   "overall": {
-    "annual_pct": 33.3,
-    "chapters_done_avg": 2.33,
+    "annual_pct": 26.2,
+    "chapters_done_avg": 1.33,
     "weekly": [
       {
         "pct": 0.0,
@@ -202,6 +236,10 @@
       {
         "pct": 0.0,
         "week": 3
+      },
+      {
+        "pct": 0.0,
+        "week": 4
       }
     ]
   }
