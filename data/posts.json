@@ -209,22 +209,64 @@
       "title": "3장",
       "slug": "member1",
       "nickname": "seonggg",
-      "state": "draft",
+      "state": "merged",
       "pr": 10,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/10",
-      "merged_at": null,
-      "reviews": []
+      "merged_at": "2026-11-17T01:11:51+00:00",
+      "reviews": [
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "APPROVED",
+          "quote": null,
+          "body": "",
+          "at": "2026-11-17T01:11:19+00:00"
+        }
+      ]
     },
     {
       "week": 4,
       "title": "3장",
       "slug": "member2",
       "nickname": "chan0e",
-      "state": "review",
+      "state": "merged",
       "pr": 11,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/11",
-      "merged_at": null,
-      "reviews": []
+      "merged_at": "2026-11-17T01:12:10+00:00",
+      "reviews": [
+        {
+          "author": "chan0e",
+          "kind": "comment",
+          "decision": null,
+          "quote": null,
+          "body": "중복 인덱스 제거 같은 경우는 읽어봤지만.. 한 번 본다고 이해할만한 장은 아닌거같습니다.\r\n해당 부분도 시험에 자주나오는 내용이라면 다시 공부하거나, 질문 드리도록 하겠습니다.",
+          "at": "2026-11-15T05:53:33+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "comment",
+          "decision": null,
+          "quote": null,
+          "body": "중복 인덱스 제거 = 효율적인 인덱스 설계\r\n효율적으로 인덱스를 설계하는 방법을 알게되면 자연스럽게 중복 인덱스를 제거할 수 있습니다.\r\n일단 넘어가고 3장에 대한 자격검정 문제를 풀어보시면서 이해하는 방법이 좋을 것 같습니다.",
+          "at": "2026-11-17T00:47:04+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "inline",
+          "decision": null,
+          "quote": "이때는 등치조건과 같은 의미가 된다. 무조건, IN-List Iterator 방식으로 푸는 것이 항상 효과적인가?",
+          "body": "인덱스 수직 스캔의 횟수가 많은 것과 수평 스캔의 선택도를 비교해서\n더 유리한 방법 고민이 필요합니다.",
+          "at": "2026-11-17T01:05:19+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "APPROVED",
+          "quote": null,
+          "body": "",
+          "at": "2026-11-17T01:06:27+00:00"
+        }
+      ]
     },
     {
       "week": 4,
