@@ -273,11 +273,36 @@
       "title": "3장",
       "slug": "member3",
       "nickname": "hseol",
-      "state": "draft",
+      "state": "merged",
       "pr": 12,
       "url": "https://github.com/sqlp-study-2026/sqlp-archive/pull/12",
-      "merged_at": null,
-      "reviews": []
+      "merged_at": "2026-11-17T01:12:27+00:00",
+      "reviews": [
+        {
+          "author": "멘토",
+          "kind": "inline",
+          "decision": null,
+          "quote": "",
+          "body": "커서에 대한 내용은 오프라인에서 말씀드린 SGA, PGA의 아키텍쳐 구조 이해가 필요합니다.",
+          "at": "2026-11-17T00:58:17+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "inline",
+          "decision": null,
+          "quote": "",
+          "body": "between, in-list, skip scan은 구조적으로 비슷합니다.\n해당 부분은 원래 한번에 이해가 안되서 일단 넘어가고 나중에 다시 보시면 됩니다.",
+          "at": "2026-11-17T01:00:51+00:00"
+        },
+        {
+          "author": "멘토",
+          "kind": "review",
+          "decision": "APPROVED",
+          "quote": null,
+          "body": "커서, 클러스터링 팩터, 조건절 옵션 처리에 대해 추후 다시 학습 하시면 좋을 것 같습니다.",
+          "at": "2026-11-17T01:02:01+00:00"
+        }
+      ]
     }
   ]
 }
